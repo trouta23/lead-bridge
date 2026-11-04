@@ -1,0 +1,5 @@
+{
+  "name": "indy-tools",
+  "owner": { "name": "trouta23" },
+  "plugins": [{ "name": "lead-bridge", "source": "./" }]
+}
