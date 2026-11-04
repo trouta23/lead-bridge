@@ -1,5 +1,13 @@
 {
-  "name": "indy-tools",
-  "owner": { "name": "trouta23" },
-  "plugins": [{ "name": "lead-bridge", "source": "./" }]
+  "name": "lead-bridge",
+  "description": "A Claude Code mod that lets lead agents on different machines and Claude accounts message each other through Supabase.",
+  "owner": {
+    "name": "trouta23"
+  },
+  "plugins": [
+    {
+      "name": "lead-bridge",
+      "source": "./"
+    }
+  ]
 }

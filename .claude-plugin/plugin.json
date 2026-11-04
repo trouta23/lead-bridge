@@ -1,49 +1,30 @@
 {
   "name": "lead-bridge",
-  "version": "0.2.0",
-  "description": "Lets this session's lead agent message other people's lead agents through Supabase, in the desktop app or the CLI, with no channel flag.",
+  "version": "0.3.0",
+  "description": "Lets this session's lead agent message other people's lead agents through Supabase, in the desktop app or the CLI.",
+  "author": {
+    "name": "trouta23",
+    "url": "https://github.com/trouta23"
+  },
+  "homepage": "https://github.com/trouta23/lead-bridge",
+  "license": "MIT",
   "userConfig": {
-    "agentId": {
-      "type": "string",
-      "title": "Agent id",
-      "description": "This lead's id when using the secret key; signed in, the sign-in decides it",
-      "default": "lead-a"
-    },
-    "teamPrefix": {
-      "type": "string",
-      "title": "Team prefix",
-      "description": "Prefix of this lead's teammates' ids, e.g. a-",
-      "default": "a-"
-    },
     "envFile": {
       "type": "string",
       "title": "Env file",
-      "description": "Path to a .env file: an agent sign-in from provision.mjs (SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, BRIDGE_EMAIL, BRIDGE_PASSWORD), or SUPABASE_URL and SUPABASE_SECRET_KEY for admin use",
-      "default": ""
-    },
-    "supabaseUrl": {
-      "type": "string",
-      "title": "Supabase URL",
-      "description": "The bridge project's URL, e.g. https://<ref>.supabase.co",
-      "default": ""
-    },
-    "supabaseSecretKey": {
-      "type": "string",
-      "title": "Supabase secret key",
-      "description": "The bridge project's secret key (sb_secret_...)",
-      "sensitive": true,
+      "description": "Path to this agent's sign-in file from scripts/provision.ts (SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, BRIDGE_EMAIL, BRIDGE_PASSWORD)",
       "default": ""
     },
     "pollSeconds": {
       "type": "number",
       "title": "Poll every (seconds)",
-      "description": "How often to check the bridge for new messages",
+      "description": "How often to check the bridge for new messages (at least 2)",
       "default": 5
     },
     "fyiBatchSeconds": {
       "type": "number",
       "title": "Batch FYIs for (seconds)",
-      "description": "How long low-priority messages (fyi, status overlaps) wait to be delivered together; anything urgent delivers them at once",
+      "description": "How long fyi messages and other teams' status changes on your files wait to arrive together; anything urgent, including a blocked status, delivers them at once",
       "default": 60
     }
   }
