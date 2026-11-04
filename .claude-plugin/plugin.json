@@ -1,12 +1,12 @@
 {
   "name": "lead-bridge",
-  "version": "0.1.0",
-  "description": "Lets this session's lead agent message the other person's lead through Supabase, in the desktop app or the CLI, with no channel flag.",
+  "version": "0.2.0",
+  "description": "Lets this session's lead agent message other people's lead agents through Supabase, in the desktop app or the CLI, with no channel flag.",
   "userConfig": {
     "agentId": {
       "type": "string",
       "title": "Agent id",
-      "description": "This lead's id on the bridge, e.g. lead-a",
+      "description": "This lead's id when using the secret key; signed in, the sign-in decides it",
       "default": "lead-a"
     },
     "teamPrefix": {
@@ -18,7 +18,7 @@
     "envFile": {
       "type": "string",
       "title": "Env file",
-      "description": "Path to a .env file holding SUPABASE_URL and SUPABASE_SECRET_KEY (absolute, or relative to the session's folder). Used when the two fields below are empty.",
+      "description": "Path to a .env file: an agent sign-in from provision.mjs (SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, BRIDGE_EMAIL, BRIDGE_PASSWORD), or SUPABASE_URL and SUPABASE_SECRET_KEY for admin use",
       "default": ""
     },
     "supabaseUrl": {
@@ -39,10 +39,12 @@
       "title": "Poll every (seconds)",
       "description": "How often to check the bridge for new messages",
       "default": 5
+    },
+    "fyiBatchSeconds": {
+      "type": "number",
+      "title": "Batch FYIs for (seconds)",
+      "description": "How long low-priority messages (fyi, status overlaps) wait to be delivered together; anything urgent delivers them at once",
+      "default": 60
     }
-  },
-  "license": "MIT",
-  "author": {
-    "name": "trouta23"
   }
 }

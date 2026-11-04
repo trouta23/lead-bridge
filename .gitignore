@@ -3,3 +3,5 @@
 .env
 .env.local
 .claude-plugin/types/
+agents/
+node_modules/
